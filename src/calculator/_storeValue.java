@@ -11,14 +11,25 @@ public class _storeValue {
 		this.numal.add(num);
 		this.opral.add(opr);
 	}
-	public void setValue(String num) {
+	public void setNum(String num) {
 		this.numal.add(num);
 	}
+	public void setOpr(String opr) {
+		this.opral.add(opr);
+	}
+	
+	public void setContinueValue() {
+		this.numal.remove(getnumalSize()-1);
+	}
+	
 	public ArrayList<String> getnumal(){
 		return numal;
 	}
 	public ArrayList<String> getopral(){
 		return opral;
+	}
+	public int getnumalSize() {
+		return numal.size();
 	}
 	
 	public void checkFunc() {

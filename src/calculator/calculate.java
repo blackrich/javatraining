@@ -5,6 +5,12 @@ import java.util.*;
 public class calculate {
 	public double cal(ArrayList<String> tmpnumal, ArrayList<String> tmpopral) {
 		
+		for(int i = 0 ; i < tmpopral.size() ; i++) {
+			System.out.print(tmpnumal.get(i) + " " + tmpopral.get(i) + " ");
+		}
+		System.out.println(tmpnumal.get(tmpopral.size()) + " = ");
+		
+		
 		int speed2opr = 0; // 곱셈, 나눗셈 갯수 확인용 변수 선언.
 		for(String tmp : tmpopral) {
 			if(tmp.equals("*") || tmp.equals("/")) speed2opr++;
@@ -44,23 +50,20 @@ public class calculate {
 							tmpnumal.set(j+1, tmpnumal.get(j+2));
 						}
 						break;
-				}
-				
+				}	
 			}
-
 		}
-		
 
 		int speed1opr = tmpopral.size();
-		 for(int a = 0 ; a < speed1opr ; a++) { //덧셈 뻴셈 있는 횟수 만큼 연산
+		for(int a = 0 ; a < speed1opr ; a++) { //덧셈 뻴셈 있는 횟수 만큼 연산
 			 
-				for(String tmp : tmpnumal) { //연산과정출력
-					System.out.print(tmp + " ");
-				}
-				for(String tmp : tmpopral) {
-					System.out.print(tmp + " ");
-				}
-				System.out.println();
+			for(String tmp : tmpnumal) { //연산과정출력
+				System.out.print(tmp + " ");
+			}
+			for(String tmp : tmpopral) {
+				System.out.print(tmp + " ");
+			}
+			System.out.println();
 			 
 			outerLoop: for(int i = 0 ; i < tmpopral.size() ; i++) {//나머지 연산
 				switch(tmpopral.get(i)) {//연산자 감지
@@ -82,12 +85,9 @@ public class calculate {
 							tmpnumal.set(j+1, tmpnumal.get(j+2));
 						}
 						break;
-				}
-				
+				}	
 			}
-
 		 }
-		
 		return Double.parseDouble(tmpnumal.get(0));
 	}
 }
