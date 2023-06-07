@@ -18,7 +18,17 @@ public class test {
 			i = str.charAt(a);
 			System.out.print(i + " ");
 		}
+		System.out.println();
 		
+		f1();
 		
 	}
+	
+	static void f1() {
+		l01 l01 = new l01();
+		
+		l01.sum(1, 2, 3);
+	}
+
+
 }

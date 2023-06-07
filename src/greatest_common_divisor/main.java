@@ -8,9 +8,7 @@ public class main {
 		ArrayList<Integer> al = new ArrayList<Integer>();
 		
 		Scanner sc = new Scanner(System.in);
-		
-		
-		
+	
 		System.out.print("get num: ");
 		int x = sc.nextInt();
 		
@@ -24,18 +22,7 @@ public class main {
 			System.out.print(j + " ");
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		sc.close();
 		
 	}
 }
