@@ -1,7 +1,5 @@
 package calculator;
 
-import java.util.*;
-
 public class _getValue {
 	
 	private _storeValue sv = new _storeValue();
@@ -18,7 +16,7 @@ public class _getValue {
 				case"-": 
 				case"*": 
 				case"/": 
-					if(getnum.equals("")) {
+					if(getnum.equals("")) { //받은 문자열에서 문자를 먼저 받았을 때에 대한 예외처리
 						if(sv.getnumalSize() > 0) {
 							sv.setOpr(val);
 							break;
@@ -35,12 +33,12 @@ public class _getValue {
 					getnum = "";
 					break;
 				case"=": 
-					if(!getnum.equals("")) sv.setNum(getnum);
+					if(!getnum.equals("")) sv.setNum(getnum); // =만 받았을 때에 대한 예외처리
 					getnum = "";
 					result = cal.cal(sv.getnumal(), sv.getopral());
 					return;
-				default: //요소가 자연수인지 확인 후 getnum 배열에 저장
-					if(isContinued) {
+				default: //요소가 정수인지 확인 후 getnum 배열에 저장
+					if(isContinued) {//이전 문자열에서 이어받았는지에 대한 예외처리
 						getnum = sv.getnumal().get(sv.getnumalSize()-1);
 						isContinued = false;
 						sv.setContinueValue();
@@ -63,5 +61,4 @@ public class _getValue {
 	public double _ReturnValue() {
 		return this.result;
 	}
-	
 }
