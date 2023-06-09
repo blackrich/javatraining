@@ -3,13 +3,12 @@ package calculator;
 import java.util.*;
 
 public class calculate {
-	public double cal(ArrayList<String> tmpnumal, ArrayList<String> tmpopral) {
+	public double cal(ArrayList<Double> tmpnumal, ArrayList<String> tmpopral) {
 		
 		for(int i = 0 ; i < tmpopral.size() ; i++) {
 			System.out.print(tmpnumal.get(i) + " " + tmpopral.get(i) + " ");
 		}
 		System.out.println(tmpnumal.get(tmpopral.size()) + " = ");
-		
 		
 		int speed2opr = 0; // 곱셈, 나눗셈 갯수 확인용 변수 선언.
 		for(String tmp : tmpopral) {
@@ -18,7 +17,7 @@ public class calculate {
 
 		 for(int a = 0 ; a < speed2opr ; a++) { //곱셈, 나눗셈 있는 횟수 만큼 연산
 			 
-				for(String tmp : tmpnumal) { //연산과정출력
+				for(double tmp : tmpnumal) { //연산과정출력
 					System.out.print(tmp + " ");
 				}
 				for(String tmp : tmpopral) {
@@ -35,9 +34,9 @@ public class calculate {
 					case"*"://*와 /연산을 먼저 계산.
 					case"/":
 						if(tmpopral.get(i).equals("*")) {//*와 / 연산을 진행하여 피연산자 arraylist에 set
-							tmpnumal.set(i, String.valueOf(Double.parseDouble(tmpnumal.get(i)) * Double.parseDouble(tmpnumal.get(i+1)))); 
+							tmpnumal.set(i, (tmpnumal.get(i) * tmpnumal.get(i+1))); 
 						}else if (tmpopral.get(i).equals("/")) {
-							tmpnumal.set(i, String.valueOf(Double.parseDouble(tmpnumal.get(i)) / Double.parseDouble(tmpnumal.get(i+1))));
+							tmpnumal.set(i, (tmpnumal.get(i) / tmpnumal.get(i+1))); 
 						}
 					default: //연산 이후 set한 값 이후의 값을 앞으로 한 칸 씩 당김.
 						for(int j = i ; j < tmpopral.size() ; j++) {
@@ -57,7 +56,7 @@ public class calculate {
 		int speed1opr = tmpopral.size();
 		for(int a = 0 ; a < speed1opr ; a++) { //덧셈 뻴셈 있는 횟수 만큼 연산
 			 
-			for(String tmp : tmpnumal) { //연산과정출력
+			for(double tmp : tmpnumal) { //연산과정출력
 				System.out.print(tmp + " ");
 			}
 			for(String tmp : tmpopral) {
@@ -70,9 +69,9 @@ public class calculate {
 					case"+"://+와 -연산은 먼저 계산하지 않고 진행.
 					case"-":
 						if(tmpopral.get(i).equals("+")) {//+와 -연산을 진행하여 피연산자 arraylist에 set
-							tmpnumal.set(i, String.valueOf(Double.parseDouble(tmpnumal.get(i)) + Double.parseDouble(tmpnumal.get(i+1)))); 
+							tmpnumal.set(i, (tmpnumal.get(i) + tmpnumal.get(i+1))); 
 						}else if (tmpopral.get(i).equals("-")) {
-							tmpnumal.set(i, String.valueOf(Double.parseDouble(tmpnumal.get(i)) - Double.parseDouble(tmpnumal.get(i+1))));
+							tmpnumal.set(i, (tmpnumal.get(i) - tmpnumal.get(i+1))); 
 						}
 					default: //연산 이후 set한 값 이후의 값을 앞으로 한 칸 씩 당김.
 						for(int j = i ; j < tmpopral.size() ; j++) {
@@ -88,6 +87,6 @@ public class calculate {
 				}	
 			}
 		 }
-		return Double.parseDouble(tmpnumal.get(0));
+		return tmpnumal.get(0);
 	}
 }
