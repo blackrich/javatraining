@@ -28,10 +28,10 @@ public class calculate {
 			 
 			outerLoop: for(int i = 0 ; i < tmpopral.size() ; i++) {//곱셈, 나눗셈 우선 연산
 				switch(tmpopral.get(i)) {//연산자 감지
-					case"+"://+와 -연산은 먼저 계산하지 않고 진행.
+					case"+"://+와 -은 먼저 계산하지 않고 진행.
 					case"-":
 						break;
-					case"*"://*와 /연산을 먼저 계산.
+					case"*"://*와 /을 먼저 계산.
 					case"/":
 						if(tmpopral.get(i).equals("*")) {//*와 / 연산을 진행하여 피연산자 arraylist에 set
 							tmpnumal.set(i, (tmpnumal.get(i) * tmpnumal.get(i+1))); 
@@ -40,7 +40,7 @@ public class calculate {
 						}
 					default: //연산 이후 set한 값 이후의 값을 앞으로 한 칸 씩 당김.
 						for(int j = i ; j < tmpopral.size() ; j++) {
-							if(j+1 > tmpopral.size()-1) {
+							if(j+1 > tmpopral.size()-1) {//배열의 마지막에 도착했을 경우 배열의 가장 뒤에 있는 값을 삭제
 								tmpnumal.remove(tmpnumal.size()-1);
 								tmpopral.remove(tmpopral.size()-1);
 								break outerLoop; //배열 뒤의 값을 당긴 이후 다시 처음부터 계산 진행
@@ -75,7 +75,7 @@ public class calculate {
 						}
 					default: //연산 이후 set한 값 이후의 값을 앞으로 한 칸 씩 당김.
 						for(int j = i ; j < tmpopral.size() ; j++) {
-							if(j+1 > tmpopral.size()-1) {
+							if(j+1 > tmpopral.size()-1) {//배열의 마지막에 도착했을 경우 배열의 가장 뒤에 있는 값을 삭제
 								tmpnumal.remove(tmpnumal.size()-1);
 								tmpopral.remove(tmpopral.size()-1);
 								break outerLoop; //배열 뒤의 값을 당긴 이후 다시 처음부터 계산 진행

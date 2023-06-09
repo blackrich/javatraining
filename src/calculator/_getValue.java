@@ -14,7 +14,6 @@ public class _getValue {
 	}
 	
 	private void split() {
-
 			String getnum = "";
 			for(String val : str.split("")) {
 				switch(val) {
@@ -28,20 +27,13 @@ public class _getValue {
 				case"7":
 				case"8":
 				case"9":
-					if( Integer.parseInt(val) > -1 && Integer.parseInt(val) < 10 ) {
-						getnum += val;
-					}
+					getnum += val;
 					break;
 				case"+": 
 				case"-": 
 				case"*": 
 				case"/": 
 					if(getnum.equals("")) { //받은 문자열에서 문자를 먼저 받았을 때에 대한 예외처리
-						if(sv.getnumalSize() > 0) {
-							sv.setOpr(val);
-							break;
-						}
-						
 						if(val.equals("+") || val.equals("-")) {
 							getnum = "0";
 						}
@@ -53,7 +45,7 @@ public class _getValue {
 					getnum = "";
 					break;
 				case"=": 
-					if(!getnum.equals("")) sv.setNum((Double.parseDouble(getnum))); // =만 받았을 때에 대한 예외처리
+					if(!getnum.equals("")) sv.setValue(Double.parseDouble(getnum)); // =만 받았을 때에 대한 예외처리
 					getnum = "";
 					result = cal.cal(sv.getnumal(), sv.getopral());
 					return;
@@ -63,7 +55,7 @@ public class _getValue {
 					System.exit(0);
 				}
 			}
-			sv.setNum((Double.parseDouble(getnum)));
+			sv.setValue(Double.parseDouble(getnum));
 		}
 	public double _ReturnValue() {
 		return this.result;

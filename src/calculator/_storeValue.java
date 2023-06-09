@@ -11,10 +11,10 @@ public class _storeValue {
 		this.numal.add(num);
 		this.opral.add(opr);
 	}
-	public void setNum(double num) {
+	public void setValue(double num) {
 		this.numal.add(num);
 	}
-	public void setOpr(String opr) {
+	public void setValue(String opr) {
 		this.opral.add(opr);
 	}
 	

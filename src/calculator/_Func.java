@@ -6,6 +6,7 @@ public class _Func {
 	
 	private static _getValue val;
 	
+	
 	public void _Func() {
 		_InputFunc();
 		_OutputFunc();
@@ -20,7 +21,6 @@ public class _Func {
 				tmp = sc.nextLine();
 				val.get(tmp); 
 			}while(!tmp.endsWith("="));
-		
 			sc.close();
 	}
 	static void _OutputFunc() {
