@@ -16,16 +16,15 @@ public class calculate {
 		}
 
 		 for(int a = 0 ; a < speed2opr ; a++) { //곱셈, 나눗셈 있는 횟수 만큼 연산
-			 
-				for(double tmp : tmpnumal) { //연산과정출력
-					System.out.print(tmp + " ");
-				}
-				for(String tmp : tmpopral) {
-					System.out.print(tmp + " ");
-				}
-				System.out.println();
-			 
-			 
+			for(double tmp : tmpnumal) { //연산과정출력
+				System.out.print(tmp + " ");
+			}
+			for(String tmp : tmpopral) {
+				System.out.print(tmp + " ");
+			}
+			System.out.println();
+			
+			
 			outerLoop: for(int i = 0 ; i < tmpopral.size() ; i++) {//곱셈, 나눗셈 우선 연산
 				switch(tmpopral.get(i)) {//연산자 감지
 					case"+"://+와 -은 먼저 계산하지 않고 진행.
@@ -49,7 +48,7 @@ public class calculate {
 							tmpnumal.set(j+1, tmpnumal.get(j+2));
 						}
 						break;
-				}	
+				}
 			}
 		}
 
