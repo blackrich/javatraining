@@ -12,7 +12,22 @@ public class _Object {
 		this.type = type;
 		this.el = el;
 	}
-	public void getter() {
-		
+	public String getname() {
+		return this.name;
+	}
+	public int getatk() {
+		return this.atk;
+	}
+	public int getdef() {
+		return this.def;
+	}
+	public int getlvl() {
+		return this.lvl;
+	}
+	public String gettype() {
+		return this.type;
+	}
+	public String getel() {
+		return this.el;
 	}
 }

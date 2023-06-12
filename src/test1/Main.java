@@ -8,15 +8,30 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("how many lines?: ");
 		int x = sc.nextInt();
+		boolean flag = true;
 		
-		for(int i = 0 ; i < x ; i++) {
+		
+		for(int i = 0 ;  ; ) {
 			for(int j = 1 ; j < x - i ; j++) {
-				System.out.print(" ");
+				System.out.print("*");
 			}
 			for(int k = 0 ; k < i*2+1 ; k++) {
+				System.out.print(" ");
+			}
+			for(int j = 1 ; j < x - i ; j++) {
 				System.out.print("*");
 			}
 			System.out.println();
+			
+            if(i == x-2) flag = false;
+            else if(i == 0) flag = true;
+            
+            if(flag) i++;
+            else i--;
+            
+			
+			
+			
 		}
 
 		

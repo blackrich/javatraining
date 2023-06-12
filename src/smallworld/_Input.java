@@ -1,16 +1,15 @@
 package smallworld;
 
-import java.io.*;
 import java.util.*;
 
 public class _Input {
 	
-	public void _input() {
+//    String filePath = "C:\\Users\\Administrator\\Desktop\\java_io_file\\";
+//    String fileName = "smallworld.txt";
+	
+	public ArrayList<_Object> _input(ArrayList<_Object> al) {
 		Scanner sc = new Scanner(System.in);
-		ArrayList<_Object> al = new ArrayList<_Object>();
 		_Object _obj = new _Object();
-	    String filePath = "C:\\Users\\Administrator\\Desktop\\java_io_file\\";
-	    String fileName = "tmp.txt";
 	    
 	    String name, type, elem;
 	    int atk, def, lvl;
@@ -34,27 +33,11 @@ public class _Input {
 			al.add(_obj);
 			break;
 
-		}while(true); 
+		}while(true); 		
 		
+		sc.close();
 		
-		
-
-		
-		
-		try {
-	        FileOutputStream fos = new FileOutputStream(filePath + fileName);
-	        ObjectOutputStream oos = new ObjectOutputStream(fos);
-
-	        oos.writeObject(al);
-
-	        fos.close();
-	        oos.close();
-			
-		}catch(Exception e) {
-			System.out.println(e);
-		}
-		
-		
+		return al;
 		
 	}
 
