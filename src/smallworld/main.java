@@ -5,8 +5,5 @@ public class main {
 		
 		_Func f = new _Func();
 		f.func();
-
-		
-	
 	}
 }

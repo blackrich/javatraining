@@ -10,7 +10,9 @@ import java.io.OutputStreamWriter;
 import java.util.*;
 
 public class _Input {
-	public ArrayList<_Object> _Input(ArrayList<_Object> al, String filePath, String fileName){
+	public ArrayList<_Object> _Input(String filePath, String fileName){
+		
+		ArrayList<_Object> al = new ArrayList<_Object>();
 		
         try {
             // FileInputStream 생성
@@ -48,4 +50,6 @@ public class _Input {
         String[] values = line.split("/");
         return new _Object(values[0], values[1], values[2], values[3], values[4], values[5]);
     }
+    
+
 }
