@@ -1,44 +1,51 @@
 package smallworld;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.*;
 
 public class _Input {
-	
-//    String filePath = "C:\\Users\\Administrator\\Desktop\\java_io_file\\";
-//    String fileName = "smallworld.txt";
-	
-	public ArrayList<_Object> _input(ArrayList<_Object> al) {
-		Scanner sc = new Scanner(System.in);
-		_Object _obj = new _Object();
-	    
-	    String name, type, elem;
-	    int atk, def, lvl;
-	    
-	    
-		do {
-			System.out.print("name(if you wanna break, put 'done'): ");
-			name = sc.next();
-			if(name.equals("done")) break;
-			System.out.print("level: ");
-			lvl = sc.nextInt();
-			System.out.print("atk: ");
-			atk = sc.nextInt();
-			System.out.print("def: ");
-			def = sc.nextInt();
-			System.out.print("type: ");
-			type = sc.next();
-			System.out.print("element: ");
-			elem = sc.next();
-			_obj.setter(name, lvl, atk, def, type, elem);
-			al.add(_obj);
-			break;
+	public ArrayList<_Object> _Input(ArrayList<_Object> al, String filePath, String fileName){
+		
+        try {
+            // FileInputStream 생성
+            FileInputStream fileInputStream = new FileInputStream(filePath + fileName);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fileInputStream));
 
-		}while(true); 		
-		
-		sc.close();
-		
-		return al;
-		
-	}
+            int tmp = 0;
+            
+            String line;
+            while ((line = reader.readLine()) != null) {
+            	
+                // 객체로 변환
+                _Object obj = parseObjectFromLine(line);
+                // 객체 사용 예시: 
+                al.add(obj);
+                // TODO: 객체 처리 코드 추가
+//                tmp++;
+//                System.out.println(tmp + ". " + obj.getname());
+//                System.out.println(line);
+            }
 
+            // 스트림 닫기
+            reader.close();
+            fileInputStream.close();
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        return al;
+    }
+
+    private static _Object parseObjectFromLine(String line) {
+        // "/"를 기준으로 값을 분리하여 객체 생성
+        String[] values = line.split("/");
+        return new _Object(values[0], values[1], values[2], values[3], values[4], values[5]);
+    }
 }

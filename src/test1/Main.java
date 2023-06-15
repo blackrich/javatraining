@@ -1,41 +1,32 @@
 package test1;
 
-import java.util.*;
-
-public class Main {
-
+public class Main{
+	 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("how many lines?: ");
-		int x = sc.nextInt();
-		boolean flag = true;
-		
-		
-		for(int i = 0 ;  ; ) {
-			for(int j = 1 ; j < x - i ; j++) {
-				System.out.print("*");
+		int[][] field = {{0,1,0,1},{0,0,0,1},{1,1,1,0},{0,1,1,1}};
+		int[][] mines = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}}; 
+		 
+		int w = 4, h = 4;
+		for(int y = 0; y < h; y++) {
+			for(int x = 0; x < w; x++) {  
+				if(field[y][x] == 0) continue;
+    
+				for(int i = y - 1 ;  i <= y + 1; i++) {
+					for(int j = x-1 ; j <= x + 1 ; j++) {
+						if(calculate(w,h,j,i) == 1) {
+							mines[i][j] += 1;
+						}
+					}
+				}
 			}
-			for(int k = 0 ; k < i*2+1 ; k++) {
-				System.out.print(" ");
-			}
-			for(int j = 1 ; j < x - i ; j++) {
-				System.out.print("*");
-			}
-			System.out.println();
-			
-            if(i == x-2) flag = false;
-            else if(i == 0) flag = true;
-            
-            if(flag) i++;
-            else i--;
-            
-			
-			
-			
 		}
-
-		
-
+		for(int y = 0; y < h; y++){
+			for(int x = 0; x < w; x++) System.out.printf("%d", mines[y][x]);
+			System.out.printf("\n");
+			}
+		}
+	static int calculate(int w,int h, int j, int i) {
+		if (i >= 0 && i < h && j >= 0 && j < w) return 1;
+		return 0;
 	}
-
 }

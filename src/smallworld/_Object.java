@@ -1,10 +1,9 @@
 package smallworld;
 
 public class _Object {
-	private int atk, def, lvl;
-	private String name, type, el;
+	private String atk, def, lvl, name, type, el;
 	
-	public void setter(String name, int atk, int def, int lvl, String type, String el ) {
+	public _Object(String name, String atk, String def, String lvl, String type, String el ) {
 		this.name = name;
 		this.atk = atk;
 		this.def = def;
@@ -15,13 +14,13 @@ public class _Object {
 	public String getname() {
 		return this.name;
 	}
-	public int getatk() {
+	public String getatk() {
 		return this.atk;
 	}
-	public int getdef() {
+	public String getdef() {
 		return this.def;
 	}
-	public int getlvl() {
+	public String getlvl() {
 		return this.lvl;
 	}
 	public String gettype() {
