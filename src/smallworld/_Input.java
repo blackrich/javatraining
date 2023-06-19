@@ -22,8 +22,7 @@ public class _Input {
             int tmp = 0;
             
             String line;
-            while ((line = reader.readLine()) != null) {
-            	
+			while ((line = reader.readLine()) != null) {
                 // 객체로 변환
                 _Object obj = parseObjectFromLine(line);
                 // 객체 사용 예시: 
@@ -34,6 +33,23 @@ public class _Input {
 //                System.out.println(line);
             }
 
+          
+			for(String line2 ; (line = reader.readLine()) == null ;) {
+				
+			}
+			
+			
+			
+			List<String> lines = new ArrayList<>();
+			reader.lines().forEach(lines::add);
+
+			for (String line3 : lines) {
+			    // 각 줄을 처리합니다
+			    System.out.println(line);
+			}
+
+			
+			
             // 스트림 닫기
             reader.close();
             fileInputStream.close();
