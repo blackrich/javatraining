@@ -20,15 +20,30 @@ public class main {
 		
 		ConnectDB();
 		
-		InsertDB("1", "desktop", 10);
+		InsertDB("1", "computer", 10);
 		InsertDB("2", "laptob", 20);
 		InsertDB("3", "phone", 30);
+		
+		ShowTBL();
+		
+		UpdateDB();
 		
 		ShowTBL();
 		
 		DeleteDB();
 		
 		disConnectDB();
+	}
+	
+	public static void UpdateDB() {
+		try {
+			pstmt = conn.prepareStatement("update tbl_product set prod_name = ? where prod_id = ?");
+			pstmt.setString(1, "desktop");
+			pstmt.setString(2, "1");
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			
+		}
 	}
 	
 	public static void DeleteDB() {
@@ -47,7 +62,7 @@ public class main {
 			pstmt = conn.prepareStatement("select * from tbl_product");
 
 			res = pstmt.executeQuery();
-			
+			System.out.println("===================");
 			while(res.next()) {
 				String prod_id = res.getString("prod_id");
 				String prod_name = res.getString("prod_name");
