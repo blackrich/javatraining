@@ -1,6 +1,6 @@
 package Thread;
 
-public class starload {
+public class starload2 {
 	public void star() {
 		int i = 0;
 		int row = 20;

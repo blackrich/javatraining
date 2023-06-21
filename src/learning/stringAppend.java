@@ -1,6 +1,6 @@
-package String;
+package learning;
 
-public class _String {
+public class stringAppend {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

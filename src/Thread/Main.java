@@ -7,24 +7,41 @@ public class Main {
 	public static void main(String[] args) {
         TimeBroadcastThread thread = new TimeBroadcastThread();
         thread.start();
+        starload thread2 = new starload();
+        thread2.start();
+//        starload thread3 = new starload();
+//        thread3.start();
     }
 }
 
 class TimeBroadcastThread extends Thread {
     @Override
     public void run() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy:MM:dd:HH:mm:ss");
+    	
+    	while(true) {
+    		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy:MM:dd:HH:mm:ss");
+            String currentTime = dateFormat.format(new Date());
+            System.out.print("Current Time: " + currentTime);
+            try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} // 1초마다 갱신
+    	}
+    	
         
+    }
+}
+
+class starload extends Thread{
+	public void run() {
+
         boolean flag = true;
         int x = 10;
         int i = 0;
         
         while (true) {
-            String currentTime = dateFormat.format(new Date());
-            System.out.print("Current Time: " + currentTime);
-            
-
-
     			for(int j = 1 ; j < x - i ; j++) {
     				System.out.print("*");
     			}
@@ -44,11 +61,11 @@ class TimeBroadcastThread extends Thread {
             
 
             try {
-                Thread.sleep(1000); // 1초마다 갱신
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             System.out.println();
         }
-    }
+	}
 }
