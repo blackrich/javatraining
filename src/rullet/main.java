@@ -24,6 +24,7 @@ public class main {
 		
 		if(al.size() == 0) {
 			System.out.println("no food in list.");
+			return ;
 		}
 
 		System.out.println("food list.");
@@ -47,7 +48,7 @@ public class main {
 				if(num < (x * (i+1))) {
 					
 					System.out.println("***** 당첨!! *****");
-					System.out.println("       " + al.get(i));
+					System.out.println("      " + al.get(i));
 					System.out.println("*****************");
 					break;
 				}
